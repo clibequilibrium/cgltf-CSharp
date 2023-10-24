@@ -5,15 +5,46 @@ C# bindings for https://github.com/jkuhlmann/cgltf with native dynamic link libr
 ## How to use
 
 ```CSharp
-using (Profiler.BeginEvent())
+using System;
+using System.Threading;
+using bottlenoselabs.C2CS.Runtime;
+using static cgltf.PInvoke;
+
+
+internal sealed class Program
 {
-    // Code to profile
+    internal static unsafe void Main(string[] args)
+    {
+        CgltfOptions options = default;
+        CgltfData* data;
+
+        CString path = (CString)"Box.glb";
+
+        CgltfResult result = CgltfParseFile(&options, path, &data);
+
+        if (result == CgltfResult.CgltfResultSuccess)
+        {
+            result = CgltfLoadBuffers(&options, data, path);
+        }
+
+        if (result == CgltfResult.CgltfResultSuccess)
+        {
+            result = CgltfValidate(data);
+        }
+
+        Console.WriteLine($"Result: {result}");
+
+        if (result == CgltfResult.CgltfResultSuccess)
+        {
+            Console.WriteLine($"Type: {data->FileType}");
+            Console.WriteLine($"Meshes: {data->MeshesCount.Data}");
+        }
+
+        CgltfFree(data);
+        Console.ReadKey();
+    }
+
 }
-Profiler.ProfileFrame("Main"); // Put this after you have completed rendering the frame. 
-                                   // Ideally that would be right after the swap buffers command. 
-                                   // Note that this step is optional, as some applications 
-                                   // (for example: a compression utility) 
-                                   // do not have the concept of a frame
 ```
 
 ## Developers: Documentation
