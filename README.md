@@ -7,7 +7,7 @@ C# bindings for https://github.com/jkuhlmann/cgltf with native dynamic link libr
 ## Get it from [NuGet](https://www.nuget.org/packages/cgltf-CSharp)
 
 ```bash
-dotnet add package cgltf-CSharp --version 1.13
+dotnet add package cgltf-CSharp --version 1.13.0
 ```
 
 ### From source
