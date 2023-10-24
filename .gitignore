@@ -1,0 +1,20 @@
+# JetBrains
+.idea/
+.vscode/
+
+# C# build artifacts
+/bin/
+/obj/
+
+# C# packages
+/nupkg/
+
+# Native libraries
+/lib/
+
+# Bindgen
+/bindgen/ast/
+/bindgen/x-ast/
+
+# macOS
+.DS_store

@@ -1,0 +1,3 @@
+[submodule "ext/cgltf"]
+	path = ext/cgltf
+	url = https://github.com/jkuhlmann/cgltf

@@ -1,0 +1,20 @@
+{
+  "inputFilePath": "./x-ast/ast-cross-platform.json",
+  "outputFileDirectory": "./../src/cs/production/cgltf-CSharp/Generated",
+  "namespaceName": "cgltf",
+  "className": "PInvoke",
+  "libraryName": "cgltf",
+  "mappedNames": [
+    {
+      "source": "ptrdiff_t",
+      "target": "IntPtr"
+    }
+  ],
+  "ignoredNames": [ ],
+  "isEnabledVerifyCSharpCodeCompiles": false,
+  "mappedCNamespaces": [],
+  "isEnabledAssemblyAttributes": true,
+  "isEnabledLibraryImport": true,
+  "isEnabledIdiomaticCSharp": true,
+  "isEnabledEnumValueNamesUpperCase": false
+}

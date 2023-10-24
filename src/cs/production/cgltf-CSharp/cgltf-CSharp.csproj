@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!-- MSBuild settings -->
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace />
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <!-- NuGet settings -->
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageId>cgltf-CSharp</PackageId>
+        <PackageDescription>C# interop bindings for https://github.com/jkuhlmann/cgltf</PackageDescription>
+        <RepositoryUrl>https://github.com/clibequilibrium/cgltf-CSharp</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>_README_PACKAGE.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="_README_PACKAGE.md">
+            <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+
+        <!-- Dynamic link libraries -->
+        <!-- Winx64 -->
+        <Content Include="..\..\..\..\lib\*.dll">
+            <Link>%(Filename)%(Extension)</Link>
+            <PackagePath>runtimes/win-x64/native/%(Filename)%(Extension)</PackagePath>
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+
+
+        <!-- Linux -->
+        <Content Include="..\..\..\..\lib\*.so">
+            <Link>%(Filename)%(Extension)</Link>
+            <PackagePath>runtimes/linux-x64/native/%(Filename)%(Extension)</PackagePath>
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+
+        <!-- osx -->
+        <Content Include="..\..\..\..\lib\*.dylib">
+            <Link>%(Filename)%(Extension)</Link>
+            <PackagePath>runtimes/osx/native/%(Filename)%(Extension)</PackagePath>
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

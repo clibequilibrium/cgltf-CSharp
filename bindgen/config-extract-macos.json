@@ -1,0 +1,10 @@
+{
+  "inputFilePath": "../src/c/production/cgltf/cgltf.c",
+  "userIncludeDirectories": [
+    "../ext/cgltf"
+  ],
+  "platforms": {
+    "aarch64-apple-darwin": {},
+    "x86_64-apple-darwin": {}
+  }
+}
